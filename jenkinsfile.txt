@@ -1,35 +1,16 @@
 pipeline {
-    agent any  // Run on any available Jenkins agent
+    agent any
 
     stages {
-        stage('Checkout') {
+        stage('Build and Test') {
             steps {
-                echo 'Checking out code...'
-                checkout scm
+                echo 'Build and Test successful!'
             }
         }
 
-        stage('Build') {
+        stage('Generate Artifact') {
             steps {
-                echo 'Building the application...'
-                // Example: compile code or build your project
-                sh 'echo "Build successful!"'
-            }
-        }
-
-        stage('Test') {
-            steps {
-                echo 'Running tests...'
-                // Replace below with actual test command
-                sh 'echo "All tests passed!"'
-            }
-        }
-
-        stage('Deploy') {
-            steps {
-                echo 'Deploying application...'
-                // Example: simulate deployment
-                sh 'echo "Deployment complete!"'
+                echo 'Hello'
             }
         }
     }
@@ -37,9 +18,3 @@ pipeline {
     post {
         success {
             echo 'Pipeline completed successfully!'
-        }
-        failure {
-            echo 'Pipeline failed!'
-        }
-    }
-}
